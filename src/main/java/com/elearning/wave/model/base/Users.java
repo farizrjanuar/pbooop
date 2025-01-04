@@ -29,19 +29,15 @@ public class Users {
     public String getFullname() {
         return fullname;
     }
-
     public void setFullname(String fullname) {
         this.fullname = fullname;
     }
-
     public List<EnrolledCourse> getEnrolledCourses() {
         return enrolledCourses;
     }
-
     public void setEnrolledCourses(List<EnrolledCourse> enrolledCourses) {
         this.enrolledCourses = enrolledCourses;
     }
-
     public long getUserId() { return userId; }
     public void setUserId(long userId) { this.userId = userId; }
     public String getEmail() { return email; }

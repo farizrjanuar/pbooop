@@ -9,8 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
-
 @RestController
 @RequestMapping("/api/modules")
 @CrossOrigin
@@ -27,7 +25,7 @@ public class QuizController {
         try {
             QuizDTO quizDTO = quizService.getQuizOnSpecifiedModule(moduleId);
             return new ResponseEntity<>(quizDTO, HttpStatus.FOUND);
-        }catch (Exception e){
+        } catch (Exception e) {
             return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
         }
     }
@@ -36,5 +34,3 @@ public class QuizController {
         return quizService.checkUserSubmission(quizSubmitDTO);
     }
 }
-
-//data['course'][0]['module'][i]

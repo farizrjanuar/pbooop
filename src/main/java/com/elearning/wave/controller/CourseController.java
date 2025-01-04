@@ -1,15 +1,12 @@
 package com.elearning.wave.controller;
 
 import com.elearning.wave.dto.CourseDTO;
-import com.elearning.wave.dto.ModuleDTO;
 import com.elearning.wave.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/courses")
@@ -28,7 +25,7 @@ public class CourseController {
         try {
             List<CourseDTO> courseDTOS = courseService.getAllCourse();
             return new ResponseEntity<>(courseDTOS, HttpStatus.FOUND);
-        }catch (Exception e){
+        } catch (Exception e) {
             return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
         }
     }
@@ -38,7 +35,7 @@ public class CourseController {
         try {
             CourseDTO courseDTO = courseService.getCourseById(id);
             return new ResponseEntity<>(courseDTO, HttpStatus.FOUND);
-        }catch (Exception e){
+        } catch (Exception e) {
             return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
         }
     }

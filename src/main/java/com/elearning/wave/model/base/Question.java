@@ -1,5 +1,4 @@
 package com.elearning.wave.model.base;
-import com.elearning.wave.dto.UserAnswerDTO;
 import jakarta.persistence.*;
 import java.util.List;
 

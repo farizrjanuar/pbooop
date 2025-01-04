@@ -1,11 +1,9 @@
 package com.elearning.wave.model.base;
-import com.elearning.wave.dto.UserAnswerDTO;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 
 import java.util.HashSet;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Entity
 @DiscriminatorValue("MULTIPLE_CHOICE") // Specify the discriminator value

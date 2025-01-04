@@ -1,8 +1,6 @@
 package com.elearning.wave.model.base;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
-
-import javax.swing.text.html.Option;
 import java.util.List;
 
 @Entity

@@ -7,15 +7,12 @@ public class OptionDTO {
     public long getOptionId() {
         return optionId;
     }
-
     public void setOptionId(long optionId) {
         this.optionId = optionId;
     }
-
     public String getOptions() {
         return options;
     }
-
     public void setOptions(String options) {
         this.options = options;
     }

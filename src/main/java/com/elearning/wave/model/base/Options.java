@@ -23,27 +23,10 @@ public class Options {
         this.question = question;
     }
 
-    public long getOptionId() {
-        return optionId;
-    }
-
-    public void setOptionId(long optionId) {
-        this.optionId = optionId;
-    }
-
-    public String getOptions() {
-        return options;
-    }
-
-    public void setOptions(String options) {
-        this.options = options;
-    }
-
-    public Question getQuestion() {
-        return question;
-    }
-
-    public void setQuestion(Question question) {
-        this.question = question;
-    }
+    public long getOptionId() { return optionId; }
+    public void setOptionId(long optionId) { this.optionId = optionId; }
+    public String getOptions() { return options; }
+    public void setOptions(String options) { this.options = options; }
+    public Question getQuestion() { return question; }
+    public void setQuestion(Question question) { this.question = question; }
 }

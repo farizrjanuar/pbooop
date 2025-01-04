@@ -8,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/users")
@@ -36,7 +35,8 @@ public class UserController {
     @GetMapping("/{userId}")
     public ResponseEntity<UserDTO> getUserById(@PathVariable long userId) {
         try {
-            UserDTO userDTO = userService.convertEntityToUserDto(userService.findById(userId).orElseThrow(() -> new IllegalArgumentException("User hasn't enroll any course")));
+            UserDTO userDTO = userService.convertEntityToUserDto(userService.findById(userId)
+                            .orElseThrow(() -> new IllegalArgumentException("User hasn't enroll any course")));
             return new ResponseEntity<>(userDTO, HttpStatus.FOUND);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);

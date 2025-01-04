@@ -1,15 +1,11 @@
 package com.elearning.wave.controller;
 
 import com.elearning.wave.dto.QuestionDTO;
-import com.elearning.wave.model.base.Quiz;
 import com.elearning.wave.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.net.http.HttpResponse;
 import java.util.List;
 
 @RestController
@@ -28,7 +24,7 @@ public class QuestionController {
         try {
             List<QuestionDTO> questionDTOS = questionService.getAllQuestionOnSpecifiedQuiz(quizId);
             return new ResponseEntity<>(questionDTOS, HttpStatus.FOUND);
-        } catch (Exception e){
+        } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
     }
@@ -38,7 +34,7 @@ public class QuestionController {
         try {
             QuestionDTO questionDTO = questionService.getQuestionByIdOnSpecifiedQuiz(quizId, questionId);
             return new ResponseEntity<>(questionDTO, HttpStatus.FOUND);
-        }catch (Exception e){
+        } catch (Exception e) {
             return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
         }
     }

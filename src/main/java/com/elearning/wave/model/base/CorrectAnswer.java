@@ -24,27 +24,10 @@ public class CorrectAnswer {
         this.question = question;
     }
 
-    public long getCorrectAnswerId() {
-        return correctAnswerId;
-    }
-
-    public void setCorrectAnswerId(long correctAnswerId) {
-        this.correctAnswerId = correctAnswerId;
-    }
-
-    public String getCorrectAnswer() {
-        return correctAnswer;
-    }
-
-    public void setCorrectAnswer(String correctAnswer) {
-        this.correctAnswer = correctAnswer;
-    }
-
-    public Question getQuestion() {
-        return question;
-    }
-
-    public void setQuestion(Question question) {
-        this.question = question;
-    }
+    public long getCorrectAnswerId() { return correctAnswerId; }
+    public void setCorrectAnswerId(long correctAnswerId) { this.correctAnswerId = correctAnswerId; }
+    public String getCorrectAnswer() { return correctAnswer; }
+    public void setCorrectAnswer(String correctAnswer) { this.correctAnswer = correctAnswer; }
+    public Question getQuestion() { return question; }
+    public void setQuestion(Question question) { this.question = question; }
 }

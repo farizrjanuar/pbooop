@@ -10,23 +10,18 @@ public class QuizDTO {
     public long getQuizId() {
         return quizId;
     }
-
     public void setQuizId(long quizId) {
         this.quizId = quizId;
     }
-
     public int getRewardPoint() {
         return rewardPoint;
     }
-
     public void setRewardPoint(int rewardPoint) {
         this.rewardPoint = rewardPoint;
     }
-
     public List<QuestionDTO> getQuestionDTO() {
         return questionDTO;
     }
-
     public void setQuestionDTO(List<QuestionDTO> questionDTO) {
         this.questionDTO = questionDTO;
     }

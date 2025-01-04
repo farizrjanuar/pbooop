@@ -8,5 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface CorrectAnswerRepository extends JpaRepository<CorrectAnswer, Long> {
-    public Optional<CorrectAnswer> findByQuestionQuestionId(long questionId);
+    Optional<CorrectAnswer> findByQuestionQuestionId(long questionId);
 }

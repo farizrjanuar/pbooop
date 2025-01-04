@@ -4,12 +4,10 @@ import com.elearning.wave.dto.ModuleDTO;
 import com.elearning.wave.model.base.Module;
 import com.elearning.wave.model.base.EnrolledCourse;
 import com.elearning.wave.repository.ModuleRepository;
-import com.elearning.wave.repository.EnrolledCourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service

@@ -33,12 +33,9 @@ public class EnrolledCourse {
     public boolean hasAccessedModule(long moduleId) {
         return accessedModules.contains(moduleId);
     }
-
     public void grantAccessToModule(long moduleId) {
         accessedModules.add(moduleId);
     }
-
-
     public long getEnrollId() { return enrollId; }
     public void setEnrollId(long enrollId) { this.enrollId = enrollId; }
     public Users getUsers() { return users; }
