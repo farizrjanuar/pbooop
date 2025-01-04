@@ -72,4 +72,14 @@ public class UserController {
             return new ResponseEntity<>(err.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
+
+    @PutMapping("/edit-profile")
+    public ResponseEntity<String> updateProfile(@RequestBody UserDTO userDTO) {
+        try {
+            String response = userService.updateProfile(userDTO);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
 }

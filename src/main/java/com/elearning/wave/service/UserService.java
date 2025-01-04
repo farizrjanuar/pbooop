@@ -75,4 +75,16 @@ public class UserService {
             throw new IllegalArgumentException("Invalid email or password", e);
         }
     }
+
+    public String updateProfile(UserDTO userDTO) {
+        try {
+            Users users = findById(userDTO.getUserId())
+                    .orElseThrow(() -> new IllegalArgumentException("user not found"));
+            users.setFullname(userDTO.getFullname());
+            userRepository.save(users);
+            return "edit profile success";
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
+    }
 }
