@@ -23,7 +23,7 @@ public class QuestionController {
         this.questionService = questionService;
     }
 
-    @GetMapping("/{quizId}")
+    @GetMapping("/{quizId}/question")
     public ResponseEntity<List<QuestionDTO>> getAllQuestionOnSpecifiedQuiz(@PathVariable long quizId) {
         try {
             List<QuestionDTO> questionDTOS = questionService.getAllQuestionOnSpecifiedQuiz(quizId);

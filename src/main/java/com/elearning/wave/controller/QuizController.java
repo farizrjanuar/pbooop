@@ -2,6 +2,7 @@ package com.elearning.wave.controller;
 
 import com.elearning.wave.dto.QuizDTO;
 import com.elearning.wave.dto.QuizSubmitDTO;
+import com.elearning.wave.dto.SubmissionResponseDTO;
 import com.elearning.wave.service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -31,8 +32,8 @@ public class QuizController {
         }
     }
     @PostMapping("/quiz/submit")
-    public void submitQuiz(@RequestBody QuizSubmitDTO quizSubmitDTO) {
-        quizService.checkUserSubmission(quizSubmitDTO);
+    public SubmissionResponseDTO submitQuiz(@RequestBody QuizSubmitDTO quizSubmitDTO) {
+        return quizService.checkUserSubmission(quizSubmitDTO);
     }
 }
 

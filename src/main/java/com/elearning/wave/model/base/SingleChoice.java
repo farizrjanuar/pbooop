@@ -18,6 +18,10 @@ public class SingleChoice extends Question {
 
     @Override
     public boolean checkAnswer(List<String> userAnswer) {
-        return correctAnswer.equals(userAnswer);
+        System.out.println("checking single");
+        if (userAnswer.size() != 1) {
+            return false;
+        }
+        return correctAnswer.getFirst().getCorrectAnswer().equals(userAnswer.getFirst());
     }
 }

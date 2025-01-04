@@ -1,23 +1,31 @@
 package com.elearning.wave.service;
 
-import com.elearning.wave.dto.QuizDTO;
-import com.elearning.wave.dto.QuizSubmitDTO;
-import com.elearning.wave.model.base.Quiz;
-import com.elearning.wave.model.base.SingleChoice;
+import com.elearning.wave.dto.*;
+import com.elearning.wave.model.base.*;
+import com.elearning.wave.repository.CorrectAnswerRepository;
 import com.elearning.wave.repository.QuizRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 public class QuizService {
     private final QuizRepository quizRepository;
     private final QuestionService questionService;
+    private final EnrolledCourseService enrolledCourseService;
+    private final CorrectAnswerRepository correctAnswerRepository;
 
     @Autowired
-    public QuizService(QuizRepository quizRepository, QuestionService questionService) {
+    public QuizService(QuizRepository quizRepository,
+                       QuestionService questionService,
+                       EnrolledCourseService enrolledCourseService,
+                       CorrectAnswerRepository correctAnswerRepository) {
         this.quizRepository = quizRepository;
         this.questionService = questionService;
+        this.enrolledCourseService = enrolledCourseService;
+        this.correctAnswerRepository = correctAnswerRepository;
     }
 
     public QuizDTO convertEntityToQuizDto(Quiz quiz) {
@@ -39,7 +47,33 @@ public class QuizService {
         return convertEntityToQuizDto(quiz);
     }
 
-    public void checkUserSubmission(QuizSubmitDTO quizSubmitDTO) {
-        System.out.println("print");
+    public SubmissionResponseDTO checkUserSubmission(QuizSubmitDTO quizSubmitDTO) {
+        Quiz quiz = quizRepository.findById(quizSubmitDTO.getQuizId())
+                .orElseThrow(() -> new IllegalArgumentException("quiz not found"));
+        List<UserAnswerDTO> userAnswerDTOS = quizSubmitDTO.getUserAnswers();
+        int totalScore = 0;
+        for (UserAnswerDTO userAnswerDTO: userAnswerDTOS) {
+            Question question = questionService.getQuestionById(userAnswerDTO.getQuestionId());
+            List<String> userAnswers = userAnswerDTO.getOptionDTOS().stream()
+                    .map(OptionDTO::getOptions)
+                    .collect(Collectors.toList());
+            boolean isCorrect = question.checkAnswer(userAnswers);
+            System.out.println(userAnswerDTO.getQuestionId() + " " + isCorrect);
+            if (isCorrect) {
+                totalScore += 2;
+            }
+        }
+        SubmissionResponseDTO submissionResponseDTO = new SubmissionResponseDTO();
+        EnrolledCourse enrolledCourse = enrolledCourseService
+                .getEnrollCourseByCourseAndUser(quizSubmitDTO.getUserId(), quizSubmitDTO.getCourseId());
+        submissionResponseDTO.setTotalScore(totalScore);
+        if (totalScore < 10) {
+            submissionResponseDTO.setPass(false);
+        } else {
+            submissionResponseDTO.setPass(true);
+            enrolledCourse.setTotalPointEarned(10);
+            enrolledCourseService.saveUpdate(enrolledCourse);
+        }
+        return submissionResponseDTO;
     }
 }

@@ -48,6 +48,12 @@ public class EnrolledCourseService {
                 .collect(Collectors.toList());
     }
 
+    public EnrolledCourse getEnrollCourseByCourseAndUser(long userId, long courseId) {
+        return enrolledCourseRepository
+                .findByUsersUserIdAndCourseCourseId(userId, courseId)
+                .orElseThrow(() -> new IllegalArgumentException("enroll course not found"));
+    }
+
     public String enrollCourse(EnrollRequestDTO enrollRequestDTO) {
         Optional<EnrolledCourse> enrolledCourseOptional = enrolledCourseRepository.findByUsersUserIdAndCourseCourseId(
                 enrollRequestDTO.getUserId(),
@@ -70,5 +76,13 @@ public class EnrolledCourseService {
         enrolledCourseRepository.save(enrolledCourse);
 
         return "Course enrolled success";
+    }
+
+    public void saveUpdate(EnrolledCourse enrolledCourse) {
+        try {
+            enrolledCourseRepository.save(enrolledCourse);
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
     }
 }

@@ -1,15 +1,21 @@
 package com.elearning.wave.dto;
 
-import com.elearning.wave.model.base.Options;
-import com.elearning.wave.model.base.Question;
-
 import java.util.List;
 
 public class QuestionDTO {
     private long questionId;
-    private String question_type;
+    private String questionType;
     private String questionText;
     private List<OptionDTO> options;
+
+
+    public String getQuestionType() {
+        return questionType;
+    }
+
+    public void setQuestionType(String questionType) {
+        this.questionType = questionType;
+    }
 
     public long getQuestionId() {
         return questionId;
@@ -33,13 +39,5 @@ public class QuestionDTO {
 
     public void setOptions(List<OptionDTO> options) {
         this.options = options;
-    }
-
-    public String getQuestion_type() {
-        return question_type;
-    }
-
-    public void setQuestion_type(String question_type) {
-        this.question_type = question_type;
     }
 }

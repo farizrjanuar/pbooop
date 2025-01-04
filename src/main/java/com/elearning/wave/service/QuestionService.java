@@ -32,6 +32,7 @@ public class QuestionService {
     public QuestionDTO convertEntityToQuestionDto(Question question) {
         QuestionDTO questionDTO = new QuestionDTO();
         questionDTO.setQuestionId(question.getQuestionId());
+        questionDTO.setQuestionType(question.getQuestionType());
         questionDTO.setQuestionText(question.getQuestionText());
         questionDTO.setOptions(question.getOptions()
                 .stream()
@@ -45,6 +46,7 @@ public class QuestionService {
         List<Question> question = questionRepository
                 .findByQuizQuizId(quizId)
                 .orElseThrow(()-> new IllegalArgumentException("question not found"));
+        System.out.println(question);
         return question
                 .stream()
                 .map(this::convertEntityToQuestionDto)
@@ -56,5 +58,10 @@ public class QuestionService {
                 .findByQuizQuizIdAndQuestionId(quizId, questionId)
                 .orElseThrow(()-> new IllegalArgumentException("question not found"));
         return convertEntityToQuestionDto(question);
+    }
+
+    public Question getQuestionById(long questionId) {
+        return questionRepository.findById(questionId)
+                .orElseThrow(() -> new IllegalArgumentException("Question not found"));
     }
 }

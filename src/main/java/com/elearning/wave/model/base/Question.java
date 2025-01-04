@@ -1,10 +1,11 @@
 package com.elearning.wave.model.base;
+import com.elearning.wave.dto.UserAnswerDTO;
 import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "question_type", discriminatorType = DiscriminatorType.STRING)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE) // Use inheritance mapping strategy
+@DiscriminatorColumn(name = "question_type", discriminatorType = DiscriminatorType.STRING) // Add discriminator column
 public abstract class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,4 +43,12 @@ public abstract class Question {
     public void setOptions(List<Options> options) { this.options = options; }
     public List<CorrectAnswer> getCorrectAnswer() { return correctAnswer; }
     public void setCorrectAnswer(List<CorrectAnswer> correctAnswer) { this.correctAnswer = correctAnswer; }
+    public String getQuestionType() {
+        if (this instanceof MultipleChoice) {
+            return "MULTIPLE_CHOICE";
+        } else if (this instanceof SingleChoice) {
+            return "SINGLE_CHOICE";
+        }
+        return "Unknown";
+    }
 }

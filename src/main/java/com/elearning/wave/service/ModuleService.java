@@ -16,12 +16,12 @@ import java.util.stream.Collectors;
 public class ModuleService {
 
     private final ModuleRepository moduleRepository;
-    private final EnrolledCourseRepository enrolledCourseRepository;
+    private final EnrolledCourseService enrolledCourseService;
 
     @Autowired
-    public ModuleService(ModuleRepository moduleRepository, EnrolledCourseRepository enrolledCourseRepository) {
+    public ModuleService(ModuleRepository moduleRepository, EnrolledCourseService enrolledCourseService) {
         this.moduleRepository = moduleRepository;
-        this.enrolledCourseRepository = enrolledCourseRepository;
+        this.enrolledCourseService = enrolledCourseService;
     }
 
     public ModuleDTO convertEntityToModuleDto(Module module) {
@@ -36,8 +36,7 @@ public class ModuleService {
 
     public ModuleDTO getModuleByIdOnSpecifiedCourse(long userId, long courseId, long moduleId) {
         // Mencari EnrolledCourse berdasarkan userId dan courseId
-        EnrolledCourse enrolledCourse = enrolledCourseRepository.findByUsersUserIdAndCourseCourseId(userId, courseId)
-                .orElseThrow(() -> new IllegalArgumentException("Enrolled course not found"));
+        EnrolledCourse enrolledCourse = enrolledCourseService.getEnrollCourseByCourseAndUser(userId, courseId);
 
         // Mencari module berdasarkan courseId dan moduleId
         Module module = moduleRepository
@@ -58,7 +57,7 @@ public class ModuleService {
         // Mengurangi poin setelah pertama kali mengakses
         enrolledCourse.setTotalPointEarned(enrolledCourse.getTotalPointEarned() - Module.getPointRequired());
         enrolledCourse.grantAccessToModule(moduleId);  // Menandai modul ini telah diakses
-        enrolledCourseRepository.save(enrolledCourse);
+        enrolledCourseService.saveUpdate(enrolledCourse);
 
         return convertEntityToModuleDto(module);
     }

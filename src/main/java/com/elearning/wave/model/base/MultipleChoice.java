@@ -1,10 +1,14 @@
 package com.elearning.wave.model.base;
+import com.elearning.wave.dto.UserAnswerDTO;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
+
+import java.util.HashSet;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
-@DiscriminatorValue("MULTIPLE_CHOICE")
+@DiscriminatorValue("MULTIPLE_CHOICE") // Specify the discriminator value
 public class MultipleChoice extends Question {
 
     public MultipleChoice(long questionId, String questionText, Quiz quiz, List<Options> options, List<CorrectAnswer> correctAnswer) {
@@ -16,6 +20,10 @@ public class MultipleChoice extends Question {
 
     @Override
     public boolean checkAnswer(List<String> userAnswer) {
-        return correctAnswer.containsAll(userAnswer) && userAnswer.containsAll(correctAnswer);
+        System.out.println("checking multiple");
+        List<String> correctAnswers = correctAnswer.stream()
+                .map(CorrectAnswer::getCorrectAnswer)
+                .toList();
+        return new HashSet<>(correctAnswers).containsAll(userAnswer) && new HashSet<>(userAnswer).containsAll(correctAnswers);
     }
 }

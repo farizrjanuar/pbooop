@@ -5,6 +5,7 @@ import java.util.List;
 public class QuizSubmitDTO {
     private long userId;
     private long quizId;
+    private long courseId;
     private List<UserAnswerDTO> userAnswers;
 
     public long getUserId() {
@@ -28,6 +29,18 @@ public class QuizSubmitDTO {
     }
 
     public void setUserAnswerS(List<UserAnswerDTO> userAnswers) {
+        this.userAnswers = userAnswers;
+    }
+
+    public long getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(long courseId) {
+        this.courseId = courseId;
+    }
+
+    public void setUserAnswers(List<UserAnswerDTO> userAnswers) {
         this.userAnswers = userAnswers;
     }
 }
