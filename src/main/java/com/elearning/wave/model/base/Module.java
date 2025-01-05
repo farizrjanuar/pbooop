@@ -3,11 +3,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "modules")
-public class Module {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "module_id")
-    private long moduleId;
+public class Module extends BaseModulesEntity{
     private String title;
     private String description;
     private String content;
@@ -18,8 +14,7 @@ public class Module {
     @OneToOne(mappedBy = "modules")
     private Quiz quiz;
 
-    public Module(long moduleId, String title, String description, String content, Course course, Quiz quiz) {
-        this.moduleId = moduleId;
+    public Module(String title, String description, String content, Course course, Quiz quiz) {
         this.title = title;
         this.description = description;
         this.content = content;
@@ -33,8 +28,20 @@ public class Module {
     public static int getPointRequired() {
         return POINT_REQUIRED;
     }
-    public long getModuleId() { return moduleId; }
-    public void setModuleId(long moduleId) { this.moduleId = moduleId; }
+
+    @Override
+    public void displayModuleInfo() {
+        System.out.println("Module: " + getTitle() + "\nDescription: " + getDescription() + "\nContent: " + getContent());
+    }
+
+    public Long getModuleId() {
+        return super.getModuleId();
+    }
+
+    public void setModuleId(Long moduleId) {
+        super.setModuleId(moduleId);
+    }
+
     public String getTitle() { return title; }
     public void setTitle(String title) { this.title = title; }
     public String getDescription() { return description; }

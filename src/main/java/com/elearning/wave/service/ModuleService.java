@@ -33,28 +33,22 @@ public class ModuleService {
     }
 
     public ModuleDTO getModuleByIdOnSpecifiedCourse(long userId, long courseId, long moduleId) {
-        // Mencari EnrolledCourse berdasarkan userId dan courseId
         EnrolledCourse enrolledCourse = enrolledCourseService.getEnrollCourseByCourseAndUser(userId, courseId);
 
-        // Mencari module berdasarkan courseId dan moduleId
         Module module = moduleRepository
                 .findByCourseCourseIdAndModuleId(courseId, moduleId)
                 .orElseThrow(() -> new IllegalArgumentException("Module not found"));
 
-        // Mengecek apakah user sudah mengakses modul tersebut
         if (enrolledCourse.hasAccessedModule(moduleId)) {
-            // Modul sudah diakses sebelumnya, langsung kembalikan data modul
             return convertEntityToModuleDto(module);
         }
 
-        // Mengecek apakah user memiliki poin yang cukup
         if (enrolledCourse.getTotalPointEarned() < Module.getPointRequired()) {
             throw new IllegalStateException("Not enough points to access this module");
         }
 
-        // Mengurangi poin setelah pertama kali mengakses
         enrolledCourse.setTotalPointEarned(enrolledCourse.getTotalPointEarned() - Module.getPointRequired());
-        enrolledCourse.grantAccessToModule(moduleId);  // Menandai modul ini telah diakses
+        enrolledCourse.grantAccessToModule(moduleId);
         enrolledCourseService.saveUpdate(enrolledCourse);
 
         return convertEntityToModuleDto(module);
