@@ -22,6 +22,13 @@ public class Course extends BaseEntity {
     public Course() {
     }
 
+    @Override
+    public void displayInfo() {
+        System.out.println("Course Title: " + title);
+        System.out.println("Course Description: " + description);
+    }
+
+
     public String getTitle() { return title; }
     public void setTitle(String title) { this.title = title; }
     public String getDescription() { return description; }

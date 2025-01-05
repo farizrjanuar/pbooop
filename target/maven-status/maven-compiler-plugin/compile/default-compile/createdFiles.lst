@@ -18,13 +18,13 @@ com\elearning\wave\service\EnrolledCourseService.class
 com\elearning\wave\repository\UserRepository.class
 com\elearning\wave\service\CourseService.class
 com\elearning\wave\dto\LoginDTO.class
+com\elearning\wave\model\base\BaseEntity.class
 com\elearning\wave\service\UserService.class
 com\elearning\wave\controller\UserController.class
 com\elearning\wave\repository\ModuleRepository.class
 com\elearning\wave\dto\QuestionDTO.class
 com\elearning\wave\model\base\Course.class
 com\elearning\wave\model\base\Options.class
-com\elearning\wave\model\base\BaseModulesEntity.class
 com\elearning\wave\repository\CorrectAnswerRepository.class
 com\elearning\wave\model\base\MultipleChoice.class
 com\elearning\wave\model\base\SingleChoice.class

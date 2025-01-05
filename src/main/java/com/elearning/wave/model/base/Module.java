@@ -25,6 +25,15 @@ public class Module extends BaseEntity {
     public Module() {
     }
 
+    @Override
+    public void displayInfo() {
+        System.out.println("Module Title: " + title);
+        System.out.println("Description: " + description);
+        System.out.println("Content: " + content);
+        System.out.println("Points Required: " + POINT_REQUIRED);
+    }
+
+
     public static int getPointRequired() {
         return POINT_REQUIRED;
     }

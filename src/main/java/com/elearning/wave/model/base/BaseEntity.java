@@ -15,4 +15,6 @@ public abstract class BaseEntity {
     public void setId(Long moduleId) {
         this.id = moduleId;
     }
+
+    public abstract void displayInfo();
 }

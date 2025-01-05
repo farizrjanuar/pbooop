@@ -26,6 +26,15 @@ public abstract class Question extends BaseEntity {
     public Question() {
     }
 
+    @Override
+    public void displayInfo() {
+        System.out.println("Question: " + questionText);
+        System.out.println("Question Type: " + getQuestionType());
+        System.out.println("Number of Options: " + (options != null ? options.size() : 0));
+        System.out.println("Number of Correct Answers: " + (correctAnswer != null ? correctAnswer.size() : 0));
+    }
+
+
     public abstract boolean checkAnswer(List<String> userAnswer);
     public String getQuestionText() { return questionText; }
     public void setQuestionText(String questionText) { this.questionText = questionText; }

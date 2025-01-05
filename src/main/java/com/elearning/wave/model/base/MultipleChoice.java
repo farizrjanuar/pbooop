@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 
 @Entity
-@DiscriminatorValue("MULTIPLE_CHOICE") // Specify the discriminator value
+@DiscriminatorValue("MULTIPLE_CHOICE")
 public class MultipleChoice extends Question {
 
     public MultipleChoice(String questionText, Quiz quiz, List<Options> options, List<CorrectAnswer> correctAnswer) {
@@ -15,6 +15,7 @@ public class MultipleChoice extends Question {
 
     public MultipleChoice() {
     }
+
 
     @Override
     public boolean checkAnswer(List<String> userAnswer) {

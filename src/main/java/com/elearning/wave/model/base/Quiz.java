@@ -22,6 +22,14 @@ public class Quiz extends BaseEntity {
     public Quiz() {
     }
 
+    @Override
+    public void displayInfo() {
+        System.out.println("Quiz Reward Points: " + rewardPoint);
+        System.out.println("Module Title: " + (modules != null ? modules.getTitle() : "No Module"));
+        System.out.println("Number of Questions: " + (question != null ? question.size() : 0));
+    }
+
+
     public int getRewardPoint() { return rewardPoint; }
     public void setRewardPoint(int rewardPoint) { this.rewardPoint = rewardPoint; }
     public Module getModule() { return modules; }

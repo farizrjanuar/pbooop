@@ -26,6 +26,13 @@ public class EnrolledCourse extends BaseEntity {
     public EnrolledCourse() {
     }
 
+    @Override
+    public void displayInfo() {
+        System.out.println("User: " + (users != null ? users.getFullname() : "Unknown"));
+        System.out.println("Course: " + (course != null ? course.getTitle() : "No Course Assigned"));
+        System.out.println("Total Points Earned: " + totalPointEarned);
+    }
+
     public boolean hasAccessedModule(long moduleId) {
         return accessedModules.contains(moduleId);
     }

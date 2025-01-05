@@ -18,6 +18,17 @@ public class Options extends BaseEntity {
     public Options() {
     }
 
+    @Override
+    public void displayInfo() {
+        System.out.println("Option: " + options);
+        if (question != null) {
+            System.out.println("Associated Question: " + question.getQuestionText());
+        } else {
+            System.out.println("No associated question found.");
+        }
+    }
+
+
     public String getOptions() { return options; }
     public void setOptions(String options) { this.options = options; }
     public Question getQuestion() { return question; }

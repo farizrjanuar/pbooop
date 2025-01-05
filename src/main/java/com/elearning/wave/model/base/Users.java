@@ -21,6 +21,13 @@ public class Users extends BaseEntity {
     public Users() {
     }
 
+    @Override
+    public void displayInfo() {
+        System.out.println("Fullname: " + fullname);
+        System.out.println("Email: " + email);
+    }
+
+
     public String getFullname() {
         return fullname;
     }
