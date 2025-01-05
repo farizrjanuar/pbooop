@@ -34,8 +34,6 @@ public class Quiz extends BaseEntity {
     public void setRewardPoint(int rewardPoint) { this.rewardPoint = rewardPoint; }
     public Module getModule() { return modules; }
     public void setModule(Module module) { this.modules = module; }
-    public Module getModules() { return modules; }
-    public void setModules(Module modules) { this.modules = modules; }
     public List<Question> getQuestion() { return question; }
     public void setQuestion(List<Question> question) { this.question = question; }
 }
