@@ -7,7 +7,7 @@ public class Module extends BaseEntity {
     private String title;
     private String description;
     private String content;
-    private static int POINT_REQUIRED = 10;
+    private static final int POINT_REQUIRED = 10;
     @ManyToOne
     @JoinColumn(name = "course_id")
     private Course course;
