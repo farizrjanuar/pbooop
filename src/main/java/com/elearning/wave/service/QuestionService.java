@@ -1,7 +1,7 @@
 package com.elearning.wave.service;
 
-import com.elearning.wave.dto.OptionDTO;
-import com.elearning.wave.dto.QuestionDTO;
+import com.elearning.wave.model.dto.OptionDTO;
+import com.elearning.wave.model.dto.QuestionDTO;
 import com.elearning.wave.model.base.Options;
 import com.elearning.wave.model.base.Question;
 import com.elearning.wave.repository.QuestionRepository;

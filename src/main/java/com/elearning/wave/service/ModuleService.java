@@ -1,6 +1,6 @@
 package com.elearning.wave.service;
 
-import com.elearning.wave.dto.ModuleDTO;
+import com.elearning.wave.model.dto.ModuleDTO;
 import com.elearning.wave.model.base.Module;
 import com.elearning.wave.model.base.EnrolledCourse;
 import com.elearning.wave.repository.ModuleRepository;

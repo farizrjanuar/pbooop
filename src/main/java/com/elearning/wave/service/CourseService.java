@@ -1,6 +1,6 @@
 package com.elearning.wave.service;
 
-import com.elearning.wave.dto.CourseDTO;
+import com.elearning.wave.model.dto.CourseDTO;
 import com.elearning.wave.model.base.Course;
 import com.elearning.wave.repository.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;

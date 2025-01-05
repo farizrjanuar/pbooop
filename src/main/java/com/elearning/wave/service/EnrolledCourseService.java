@@ -1,7 +1,7 @@
 package com.elearning.wave.service;
 
-import com.elearning.wave.dto.EnrollRequestDTO;
-import com.elearning.wave.dto.EnrolledCourseDTO;
+import com.elearning.wave.model.dto.EnrollRequestDTO;
+import com.elearning.wave.model.dto.EnrolledCourseDTO;
 import com.elearning.wave.model.base.Course;
 import com.elearning.wave.model.base.EnrolledCourse;
 import com.elearning.wave.model.base.Users;

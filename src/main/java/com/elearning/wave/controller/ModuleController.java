@@ -1,6 +1,6 @@
 package com.elearning.wave.controller;
 
-import com.elearning.wave.dto.ModuleDTO;
+import com.elearning.wave.model.dto.ModuleDTO;
 import com.elearning.wave.service.ModuleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

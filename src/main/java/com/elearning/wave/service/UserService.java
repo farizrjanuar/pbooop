@@ -1,9 +1,9 @@
 package com.elearning.wave.service;
 
-import com.elearning.wave.dto.AuthResponseDTO;
-import com.elearning.wave.dto.LoginDTO;
-import com.elearning.wave.dto.RegisterDTO;
-import com.elearning.wave.dto.UserDTO;
+import com.elearning.wave.model.dto.AuthResponseDTO;
+import com.elearning.wave.model.dto.LoginDTO;
+import com.elearning.wave.model.dto.RegisterDTO;
+import com.elearning.wave.model.dto.UserDTO;
 import com.elearning.wave.model.base.Users;
 import com.elearning.wave.repository.UserRepository;
 import com.elearning.wave.security.JWTGenerator;

@@ -1,8 +1,8 @@
 package com.elearning.wave.controller;
 
-import com.elearning.wave.dto.QuizDTO;
-import com.elearning.wave.dto.QuizSubmitDTO;
-import com.elearning.wave.dto.SubmissionResponseDTO;
+import com.elearning.wave.model.dto.QuizDTO;
+import com.elearning.wave.model.dto.QuizSubmitDTO;
+import com.elearning.wave.model.dto.SubmissionResponseDTO;
 import com.elearning.wave.service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

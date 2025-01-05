@@ -1,6 +1,6 @@
 package com.elearning.wave.controller;
 
-import com.elearning.wave.dto.*;
+import com.elearning.wave.model.dto.*;
 import com.elearning.wave.service.EnrolledCourseService;
 import com.elearning.wave.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.elearning.wave.dto;
+package com.elearning.wave.model.dto;
 
 import java.util.List;
 
