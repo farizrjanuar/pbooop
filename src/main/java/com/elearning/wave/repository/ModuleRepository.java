@@ -9,6 +9,6 @@ import java.util.Optional;
 
 @Repository
 public interface ModuleRepository extends JpaRepository<Module, Long> {
-    Optional<Module> findByCourseCourseIdAndModuleId(long courseId, long moduleId);
-    Optional<List<Module>> findByCourseCourseId(long courseId);
+    Optional<Module> findByCourseIdAndId(long courseId, long moduleId);
+    Optional<List<Module>> findByCourseId(long courseId);
 }

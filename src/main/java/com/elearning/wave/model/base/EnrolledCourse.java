@@ -5,11 +5,7 @@ import java.util.ArrayList;
 
 @Entity
 @Table(name = "enrolled_course")
-public class EnrolledCourse {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "enroll_id")
-    private long enrollId;
+public class EnrolledCourse extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private Users users;
@@ -20,11 +16,11 @@ public class EnrolledCourse {
     @ElementCollection
     private List<Long> accessedModules = new ArrayList<>();
 
-    public EnrolledCourse(long enrollId, Users users, Course course) {
-        this.enrollId = enrollId;
+    public EnrolledCourse(Users users, Course course, int totalPointEarned, List<Long> accessedModules) {
         this.users = users;
         this.course = course;
-        this.totalPointEarned = 0;
+        this.totalPointEarned = totalPointEarned;
+        this.accessedModules = accessedModules;
     }
 
     public EnrolledCourse() {
@@ -36,8 +32,6 @@ public class EnrolledCourse {
     public void grantAccessToModule(long moduleId) {
         accessedModules.add(moduleId);
     }
-    public long getEnrollId() { return enrollId; }
-    public void setEnrollId(long enrollId) { this.enrollId = enrollId; }
     public Users getUsers() { return users; }
     public void setUsers(Users users) { this.users = users; }
     public Course getCourse() { return course; }

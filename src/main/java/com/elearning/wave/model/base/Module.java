@@ -3,7 +3,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "modules")
-public class Module extends BaseModulesEntity{
+public class Module extends BaseEntity {
     private String title;
     private String description;
     private String content;
@@ -27,19 +27,6 @@ public class Module extends BaseModulesEntity{
 
     public static int getPointRequired() {
         return POINT_REQUIRED;
-    }
-
-    @Override
-    public void displayModuleInfo() {
-        System.out.println("Module: " + getTitle() + "\nDescription: " + getDescription() + "\nContent: " + getContent());
-    }
-
-    public Long getModuleId() {
-        return super.getModuleId();
-    }
-
-    public void setModuleId(Long moduleId) {
-        super.setModuleId(moduleId);
     }
 
     public String getTitle() { return title; }

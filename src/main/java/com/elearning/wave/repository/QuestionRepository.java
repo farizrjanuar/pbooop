@@ -9,6 +9,6 @@ import java.util.Optional;
 
 @Repository
 public interface QuestionRepository extends JpaRepository<Question, Long> {
-    Optional<List<Question>> findByQuizQuizId(long quizId);
-    Optional<Question> findByQuizQuizIdAndQuestionId(long quizId, long questionId);
+    Optional<List<Question>> findByQuizId(long quizId);
+    Optional<Question> findByQuizIdAndId(long quizId, long questionId);
 }

@@ -30,7 +30,7 @@ public class QuizService {
 
     public QuizDTO convertEntityToQuizDto(Quiz quiz) {
         QuizDTO quizDTO = new QuizDTO();
-        quizDTO.setQuizId(quiz.getQuizId());
+        quizDTO.setQuizId(quiz.getId());
         quizDTO.setRewardPoint(quiz.getRewardPoint());
         quizDTO.setQuestionDTO(quiz.getQuestion()
                 .stream()
@@ -42,14 +42,12 @@ public class QuizService {
 
     public QuizDTO getQuizOnSpecifiedModule(long moduleId) {
         Quiz quiz = quizRepository
-                .findByModulesModuleId(moduleId)
+                .findByModulesId(moduleId)
                 .orElseThrow(()->new IllegalArgumentException("quiz not found"));
         return convertEntityToQuizDto(quiz);
     }
 
     public SubmissionResponseDTO checkUserSubmission(QuizSubmitDTO quizSubmitDTO) {
-        Quiz quiz = quizRepository.findById(quizSubmitDTO.getQuizId())
-                .orElseThrow(() -> new IllegalArgumentException("quiz not found"));
         List<UserAnswerDTO> userAnswerDTOS = quizSubmitDTO.getUserAnswers();
         int totalScore = 0;
         for (UserAnswerDTO userAnswerDTO: userAnswerDTOS) {

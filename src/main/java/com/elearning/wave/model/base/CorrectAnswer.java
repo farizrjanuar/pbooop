@@ -4,28 +4,21 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "correct_answers")
-public class CorrectAnswer {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "correct_answer_id")
-    private long correctAnswerId;
+public class CorrectAnswer extends BaseEntity {
     @Column(name = "correct_answer")
     private String correctAnswer;
     @ManyToOne
     @JoinColumn(name = "question_id")
     private Question question;
 
-    public CorrectAnswer() {
-    }
-
-    public CorrectAnswer(long correctAnswerId, String correctAnswer, Question question) {
-        this.correctAnswerId = correctAnswerId;
+    public CorrectAnswer(String correctAnswer, Question question) {
         this.correctAnswer = correctAnswer;
         this.question = question;
     }
 
-    public long getCorrectAnswerId() { return correctAnswerId; }
-    public void setCorrectAnswerId(long correctAnswerId) { this.correctAnswerId = correctAnswerId; }
+    public CorrectAnswer() {
+    }
+
     public String getCorrectAnswer() { return correctAnswer; }
     public void setCorrectAnswer(String correctAnswer) { this.correctAnswer = correctAnswer; }
     public Question getQuestion() { return question; }

@@ -22,7 +22,7 @@ public class CourseService {
 
     public CourseDTO convertEntityToCourseDto(Course course) {
         CourseDTO courseDTO = new CourseDTO();
-        courseDTO.setCourseId(course.getCourseId());
+        courseDTO.setCourseId(course.getId());
         courseDTO.setDescription(course.getDescription());
         courseDTO.setTitle(course.getTitle());
 

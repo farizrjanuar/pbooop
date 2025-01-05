@@ -24,7 +24,7 @@ public class ModuleService {
 
     public ModuleDTO convertEntityToModuleDto(Module module) {
         ModuleDTO moduleDTO = new ModuleDTO();
-        moduleDTO.setModuleId(module.getModuleId());
+        moduleDTO.setModuleId(module.getId());
         moduleDTO.setTitle(module.getTitle());
         moduleDTO.setContent(module.getContent());
         moduleDTO.setDescription(module.getDescription());
@@ -36,7 +36,7 @@ public class ModuleService {
         EnrolledCourse enrolledCourse = enrolledCourseService.getEnrollCourseByCourseAndUser(userId, courseId);
 
         Module module = moduleRepository
-                .findByCourseCourseIdAndModuleId(courseId, moduleId)
+                .findByCourseIdAndId(courseId, moduleId)
                 .orElseThrow(() -> new IllegalArgumentException("Module not found"));
 
         if (enrolledCourse.hasAccessedModule(moduleId)) {
@@ -56,7 +56,7 @@ public class ModuleService {
 
     public List<ModuleDTO> getModulesOnSpecifiedCourse(long courseId) {
         List<Module> module = moduleRepository
-                .findByCourseCourseId(courseId)
+                .findByCourseId(courseId)
                 .orElseThrow(()->new IllegalArgumentException("module not found"));
         return module
                 .stream()

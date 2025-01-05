@@ -5,11 +5,7 @@ import java.util.List;
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE) // Use inheritance mapping strategy
 @DiscriminatorColumn(name = "question_type", discriminatorType = DiscriminatorType.STRING) // Add discriminator column
-public abstract class Question {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "question_id")
-    protected long questionId;
+public abstract class Question extends BaseEntity {
     @Column(name = "question_text")
     protected String questionText;
     @ManyToOne
@@ -20,8 +16,7 @@ public abstract class Question {
     @OneToMany(mappedBy = "question")
     protected List<CorrectAnswer> correctAnswer;
 
-    public Question(long questionId, String questionText, Quiz quiz, List<Options> options, List<CorrectAnswer> correctAnswer) {
-        this.questionId = questionId;
+    public Question(String questionText, Quiz quiz, List<Options> options, List<CorrectAnswer> correctAnswer) {
         this.questionText = questionText;
         this.quiz = quiz;
         this.options = options;
@@ -32,8 +27,6 @@ public abstract class Question {
     }
 
     public abstract boolean checkAnswer(List<String> userAnswer);
-    public long getQuestionId() { return questionId; }
-    public void setQuestionId(long questionId) { this.questionId = questionId; }
     public String getQuestionText() { return questionText; }
     public void setQuestionText(String questionText) { this.questionText = questionText; }
     public Quiz getQuiz() { return quiz; }

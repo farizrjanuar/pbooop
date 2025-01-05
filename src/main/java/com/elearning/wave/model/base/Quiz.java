@@ -4,11 +4,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "quiz")
-public class Quiz {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "quiz_id")
-    private long quizId;
+public class Quiz extends BaseEntity {
     @Column(name = "reward_point")
     private int rewardPoint;
     @OneToOne
@@ -17,8 +13,7 @@ public class Quiz {
     @OneToMany(mappedBy = "quiz")
     private List<Question> question;
 
-    public Quiz(long quizId, int rewardPoint, Module modules, List<Question> question) {
-        this.quizId = quizId;
+    public Quiz(int rewardPoint, Module modules, List<Question> question) {
         this.rewardPoint = rewardPoint;
         this.modules = modules;
         this.question = question;
@@ -27,8 +22,6 @@ public class Quiz {
     public Quiz() {
     }
 
-    public long getQuizId() { return quizId; }
-    public void setQuizId(long quizId) { this.quizId = quizId; }
     public int getRewardPoint() { return rewardPoint; }
     public void setRewardPoint(int rewardPoint) { this.rewardPoint = rewardPoint; }
     public Module getModule() { return modules; }

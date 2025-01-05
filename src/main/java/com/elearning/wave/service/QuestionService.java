@@ -23,7 +23,7 @@ public class QuestionService {
 
     public OptionDTO convertEntityToOptionDto(Options options) {
         OptionDTO optionDTO = new OptionDTO();
-        optionDTO.setOptionId(options.getOptionId());
+        optionDTO.setOptionId(options.getId());
         optionDTO.setOptions(options.getOptions());
 
         return optionDTO;
@@ -31,7 +31,7 @@ public class QuestionService {
 
     public QuestionDTO convertEntityToQuestionDto(Question question) {
         QuestionDTO questionDTO = new QuestionDTO();
-        questionDTO.setQuestionId(question.getQuestionId());
+        questionDTO.setQuestionId(question.getId());
         questionDTO.setQuestionType(question.getQuestionType());
         questionDTO.setQuestionText(question.getQuestionText());
         questionDTO.setOptions(question.getOptions()
@@ -44,7 +44,7 @@ public class QuestionService {
 
     public List<QuestionDTO> getAllQuestionOnSpecifiedQuiz(long quizId) {
         List<Question> question = questionRepository
-                .findByQuizQuizId(quizId)
+                .findByQuizId(quizId)
                 .orElseThrow(()-> new IllegalArgumentException("question not found"));
         System.out.println(question);
         return question
@@ -55,7 +55,7 @@ public class QuestionService {
 
     public QuestionDTO getQuestionByIdOnSpecifiedQuiz(long quizId, long questionId) {
         Question question = questionRepository
-                .findByQuizQuizIdAndQuestionId(quizId, questionId)
+                .findByQuizIdAndId(quizId, questionId)
                 .orElseThrow(()-> new IllegalArgumentException("question not found"));
         return convertEntityToQuestionDto(question);
     }

@@ -4,19 +4,14 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
-public class Users {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
-    private long userId;
+public class Users extends BaseEntity {
     private String fullname;
     private String email;
     private String password;
     @OneToMany(mappedBy = "users")
     private List<EnrolledCourse> enrolledCourses;
 
-    public Users(long userId, String fullname, String username, String email, String password, List<EnrolledCourse> enrolledCourses) {
-        this.userId = userId;
+    public Users(String fullname, String email, String password, List<EnrolledCourse> enrolledCourses) {
         this.fullname = fullname;
         this.email = email;
         this.password = password;
@@ -38,8 +33,6 @@ public class Users {
     public void setEnrolledCourses(List<EnrolledCourse> enrolledCourses) {
         this.enrolledCourses = enrolledCourses;
     }
-    public long getUserId() { return userId; }
-    public void setUserId(long userId) { this.userId = userId; }
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
     public String getPassword() { return password; }

@@ -7,8 +7,8 @@ import java.util.List;
 @DiscriminatorValue("SINGLE_CHOICE")
 public class SingleChoice extends Question {
 
-    public SingleChoice(long questionId, String questionText, Quiz quiz, List<Options> options, List<CorrectAnswer> correctAnswer) {
-        super(questionId, questionText, quiz, options, correctAnswer);
+    public SingleChoice(String questionText, Quiz quiz, List<Options> options, List<CorrectAnswer> correctAnswer) {
+        super(questionText, quiz, options, correctAnswer);
     }
 
     public SingleChoice() {
