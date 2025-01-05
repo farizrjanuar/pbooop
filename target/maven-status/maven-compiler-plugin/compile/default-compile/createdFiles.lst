@@ -24,6 +24,8 @@ com\elearning\wave\repository\ModuleRepository.class
 com\elearning\wave\dto\QuestionDTO.class
 com\elearning\wave\model\base\Course.class
 com\elearning\wave\model\base\Options.class
+com\elearning\wave\model\base\BaseModulesEntity.class
+com\elearning\wave\repository\CorrectAnswerRepository.class
 com\elearning\wave\model\base\MultipleChoice.class
 com\elearning\wave\model\base\SingleChoice.class
 com\elearning\wave\security\JWTGenerator.class
@@ -32,6 +34,7 @@ com\elearning\wave\model\base\Quiz.class
 com\elearning\wave\WaveApplication.class
 com\elearning\wave\dto\QuizSubmitDTO.class
 com\elearning\wave\security\SecurityConstant.class
+com\elearning\wave\dto\SubmissionResponseDTO.class
 com\elearning\wave\dto\UserAnswerDTO.class
 com\elearning\wave\service\ModuleService.class
 com\elearning\wave\model\base\EnrolledCourse.class

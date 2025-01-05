@@ -14,8 +14,10 @@ C:\Users\hanum\Downloads\PBOOOP\newpbo\pbooop\src\main\java\com\elearning\wave\d
 C:\Users\hanum\Downloads\PBOOOP\newpbo\pbooop\src\main\java\com\elearning\wave\dto\QuizDTO.java
 C:\Users\hanum\Downloads\PBOOOP\newpbo\pbooop\src\main\java\com\elearning\wave\dto\QuizSubmitDTO.java
 C:\Users\hanum\Downloads\PBOOOP\newpbo\pbooop\src\main\java\com\elearning\wave\dto\RegisterDTO.java
+C:\Users\hanum\Downloads\PBOOOP\newpbo\pbooop\src\main\java\com\elearning\wave\dto\SubmissionResponseDTO.java
 C:\Users\hanum\Downloads\PBOOOP\newpbo\pbooop\src\main\java\com\elearning\wave\dto\UserAnswerDTO.java
 C:\Users\hanum\Downloads\PBOOOP\newpbo\pbooop\src\main\java\com\elearning\wave\dto\UserDTO.java
+C:\Users\hanum\Downloads\PBOOOP\newpbo\pbooop\src\main\java\com\elearning\wave\model\base\BaseModulesEntity.java
 C:\Users\hanum\Downloads\PBOOOP\newpbo\pbooop\src\main\java\com\elearning\wave\model\base\CorrectAnswer.java
 C:\Users\hanum\Downloads\PBOOOP\newpbo\pbooop\src\main\java\com\elearning\wave\model\base\Course.java
 C:\Users\hanum\Downloads\PBOOOP\newpbo\pbooop\src\main\java\com\elearning\wave\model\base\EnrolledCourse.java
@@ -26,6 +28,7 @@ C:\Users\hanum\Downloads\PBOOOP\newpbo\pbooop\src\main\java\com\elearning\wave\m
 C:\Users\hanum\Downloads\PBOOOP\newpbo\pbooop\src\main\java\com\elearning\wave\model\base\Quiz.java
 C:\Users\hanum\Downloads\PBOOOP\newpbo\pbooop\src\main\java\com\elearning\wave\model\base\SingleChoice.java
 C:\Users\hanum\Downloads\PBOOOP\newpbo\pbooop\src\main\java\com\elearning\wave\model\base\Users.java
+C:\Users\hanum\Downloads\PBOOOP\newpbo\pbooop\src\main\java\com\elearning\wave\repository\CorrectAnswerRepository.java
 C:\Users\hanum\Downloads\PBOOOP\newpbo\pbooop\src\main\java\com\elearning\wave\repository\CourseRepository.java
 C:\Users\hanum\Downloads\PBOOOP\newpbo\pbooop\src\main\java\com\elearning\wave\repository\EnrolledCourseRepository.java
 C:\Users\hanum\Downloads\PBOOOP\newpbo\pbooop\src\main\java\com\elearning\wave\repository\ModuleRepository.java
